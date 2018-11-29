@@ -1,0 +1,45 @@
+  '/events/{carId}':
+    post:
+      tags:
+        - events
+      summary: create cars' usage event
+      description: Cars send events that are created via this API
+      operationId: createEvents
+      parameters:
+        - name: carId
+          in: path
+          description: pass the carID to create the event linked to the carId
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        description: send an Events object in json format
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/event'
+      security:
+        - api_key: []
+      responses:
+        '200':
+          description: event has been created
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/event'
+        '400':
+          description: bad or missing input parameter.
+        '401':
+          description: unauthorized
+        '403':
+          description: forbidden
+        '404':
+          description: Not Found  The requested resource doesn’t exist.
+        '412':
+          description: precondition failed
+        '500':
+          description: technical error
