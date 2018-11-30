@@ -54,8 +54,3 @@ components:
         speed: 37
         gazCons: 3.7
         carId: b234d8ff-5a53-1b98-34d7-d345789d1243
-  securitySchemes:
-    api_key:
-      type: apiKey
-      name: X-API-KEY
-      in: header

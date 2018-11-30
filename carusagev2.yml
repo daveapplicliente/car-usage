@@ -137,3 +137,9 @@ paths:
           description: technical error
 servers:
   - url: 'https://virtserver.swaggerhub.com/August1/carusage/1.0.0'
+components:
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: X-API-KEY
+      in: header
